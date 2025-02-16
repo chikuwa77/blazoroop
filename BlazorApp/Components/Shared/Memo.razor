@@ -1,0 +1,13 @@
+﻿<div class="row g-1">
+
+    <div class="input-group flex-nowrap mb-1">
+
+        <span class="input-group-text">Memo</span>
+        <input type="text" class="form-control" id="Memo" @onchange="Input" value="@MemoState.Value.Memo" disabled="@EnableSwitchState.Value.EnableSwitch">
+
+    </div>
+    <div class="input-group mb-1 alert-danger" role="alert">
+        @ErrMsg
+    </div>
+
+</div>

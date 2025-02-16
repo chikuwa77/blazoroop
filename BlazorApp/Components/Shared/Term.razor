@@ -1,0 +1,13 @@
+﻿<div class="row g-1">
+
+    <div class="input-group flex-nowrap mb-1">
+
+        <span class="input-group-text">Term</span>
+        <input type="string" class="form-control" id="Term" @onchange="Input" value="@DateOnly.FromDateTime(TermState.Value.Term)" disabled="@EnableSwitchState.Value.EnableSwitch">
+
+    </div>
+    <div class="input-group mb-1 alert-danger" role="alert">
+        @ErrMsg
+    </div>
+
+</div>

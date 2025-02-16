@@ -1,0 +1,75 @@
+﻿@page "/ToDoList"
+
+@using BlazorApp.Components.Shared
+
+<h3>ToDoList</h3>
+
+<div class="container-fluid g-2">
+
+    <div class="row g-1">
+        <div class="col-lg-4">
+            <EnableSwitch/>
+        </div>
+    </div>
+
+    <div class="row g-1">
+
+        <div class="col-lg-2">
+            <TaskName/>
+        </div>
+
+        <div class="col-lg-3">
+            <Memo/>
+        </div>
+
+        <div class="col-lg-2">
+            <Term />
+        </div>
+
+        <div class="col-lg-2">
+            <Priority />
+        </div>
+
+        <div class="col-lg-1">
+            <button type="submit" class="btn btn-secondary mb-1" @onclick="PushAdd" disabled="@EnableSwitchState.Value.EnableSwitch">Add</button>
+        </div>
+
+        <div class="col-lg-1">
+            <button type="submit" class="btn btn-secondary mb-1" @onclick="PushClr" disabled="@EnableSwitchState.Value.EnableSwitch">Clear</button>
+        </div>
+
+    </div>
+
+
+    <div class="row g-1">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>TaskName</td>
+                    <td>Memo</td>
+                    <td>Term</td>
+                    <td>Priority</td>
+                </tr>
+            </thead>
+
+            @if (ToDoLists != null)
+            {
+                @foreach (var it in ToDoLists)
+                {
+                    <tr>
+                        <td>@it.TaskName</td>
+                        <td>@it.Memo</td>
+                        <td>@DateOnly.FromDateTime(it.Term)</td>
+                        <td>@it.Priority</td>
+                    </tr>
+                }
+
+            }
+        </table>
+
+    </div>
+
+
+</div>
+

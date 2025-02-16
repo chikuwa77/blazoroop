@@ -1,0 +1,22 @@
+﻿<div class="row g-1">
+
+    <div class="input-group flex-nowrap mb-1">
+
+        <span class="input-group-text">Priority</span>
+
+        <select class="form-select ohter" @onchange="Input" value="@PriorityState.Value.Priority" disabled="@EnableSwitchState.Value.EnableSwitch">
+            @if(PriorityLists != null)
+            {
+                @foreach(var item in PriorityLists)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            }
+        </select>
+
+    </div>
+    <div class="input-group mb-1 alert-danger" role="alert">
+        @ErrMsg
+    </div>
+
+</div>
